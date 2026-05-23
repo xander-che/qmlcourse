@@ -161,13 +161,13 @@ $$
 В общем случае однокубитные гейты могут быть также записаны следующим образом:
 
 $$
-\large \hat{R}^\vec{n}(\alpha) = e^{-\frac{i\alpha\hat{\vec{\sigma}}\vec{n}}{2}},
+\hat{R}^{\vec{n}}(\alpha) = e^{-\frac{i\alpha \vec{\sigma} \cdot \vec{n}}{2}},
 $$
 
 где $\alpha$ -- это угол поворота, $\vec{n}$ -- единичный вектор в направлении оси поворота, а $\hat{\vec{\sigma}} = \{\hat{\sigma}^x, \hat{\sigma}^y, \hat{\sigma}^z\}$ -- это вектор, составленный из операторов Паули. Если использовать покоординатную запись и $\vec{n} = \{n_x, n_y, n_z\}$ задает ось вращения, то
 
 $$
-\large \hat{R}^\vec{n}(\alpha) = e^{-i\frac{\alpha}{2}\left(\hat{\sigma}^xn_x+\hat{\sigma}^yn_y+\hat{\sigma}^zn_z\right)}.
+\hat{R}^{\vec{n}}(\alpha) = e^{-i\frac{\alpha}{2}(\hat{\sigma}^x n_x + \hat{\sigma}^y n_y + \hat{\sigma}^z n_z)}.
 $$
 
 Забегая вперед, можно сказать, что именно гейты вращений -- это основа [квантовых вариационных схем](../../vqc/ru/vqc_intro.md), главного инструмента этого курса.
