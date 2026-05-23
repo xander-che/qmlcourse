@@ -74,6 +74,11 @@ jobs:
           # Убираем одиночные \left и \right
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\left//g' {} \;
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\right//g' {} \;
+
+          # Исправляем конкретные формулы
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\hat{\\vec{\\sigma}}/\\hat{\\sigma}/g' {} \;
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/| \\bra{\\Psi}|\\Psi\\rangle} |\\^2/|\\langle \\Psi | \\Psi \\rangle|^2/g' {} \;
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/R\\^\\vec{n}(\\alpha)/R^{\\vec{n}}(\\alpha)/g' {} \;
           
           echo "✅ LaTeX cleanup completed"
       
