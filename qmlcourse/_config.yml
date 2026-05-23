@@ -43,16 +43,16 @@ latex:
     targetname: qmlcourse.tex
 
 sphinx:
-  config:
-    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js
-    mathjax_config:
-      tex:
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    html_baseurl: https://quantum-ods.github.io/qmlcourse/
   extra_extensions:
     - sphinx_sitemap
     - sphinx_jupyterbook_latex
+  config:
+    html_js_files:
+      - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+    mathjax3_config:
+      tex:
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
 
 parse:
   myst_enable_extensions:
