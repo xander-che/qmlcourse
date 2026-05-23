@@ -53,6 +53,9 @@ sphinx:
       tex:
         inlineMath: [['$', '$'], ['\\(', '\\)']]
         displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      options:
+        processHtmlClass: '.*'
+        processEscapes: true
 
 parse:
   myst_enable_extensions:
