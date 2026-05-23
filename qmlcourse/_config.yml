@@ -57,6 +57,10 @@ sphinx:
           Ket: ['|#1\rangle', 1]
           Bra: ['\langle#1|', 1]
           BraKet: ['\langle#1|#2\rangle', 2]
+      options:
+        skipHtmlTags: []
+        processHtmlClass: '.*'
+        ignoreHtmlClass: ''
 
 parse:
   myst_enable_extensions:
