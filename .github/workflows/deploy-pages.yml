@@ -29,6 +29,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install jupyter-book
+          pip install sphinx-sitemap sphinx-jupyterbook-latex
           pip install numpy scipy matplotlib pandas sympy jax jaxlib -f https://storage.googleapis.com/jax-releases/jax_releases.html
       
       - name: Install course dependencies
