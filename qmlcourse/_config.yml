@@ -20,8 +20,6 @@ html:
   binderhub_url: ""
   thebe: false
   baseurl: https://quantum-ods.github.io/qmlcourse/book/
-  extra_js:
-    - _static/mathjax_init.js
 
 notebook_interface: "notebook"
 
@@ -54,9 +52,9 @@ sphinx:
         inlineMath: [['$', '$'], ['\\(', '\\)']]
         displayMath: [['$$', '$$'], ['\\[', '\\]']]
         macros:
-          bra: ['\\langle #1\\|', 1]
-          ket: ['\\| #1 \\rangle', 1]
-          braket: ['\\langle #1 \\| #2 \\rangle', 2]
+          bra: ["\\langle #1|", 1]
+          ket: ["|#1\\rangle", 1]
+          braket: ["\\langle #1|#2\\rangle", 2]
     html_js_files:
       - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 
