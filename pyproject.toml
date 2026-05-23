@@ -6,7 +6,7 @@ authors = ["Quantum Machine Learning Community Course <qmlcourse.ods@gmail.com>"
 license = "CC-BY-4.0"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<=3.9"
+python = ">=3.8,<=3.10"
 cirq = "0.11.0"
 dwave-system = "^1.10.0"
 dwavebinarycsp = "^0.1.3"
