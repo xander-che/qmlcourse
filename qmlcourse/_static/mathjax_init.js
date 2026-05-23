@@ -1,40 +1,50 @@
 (function() {
-    // Проверяем, не загружен ли уже MathJax
-    if (window.MathJax && window.MathJax.typeset) {
-        console.log('MathJax already present, running typeset');
-        MathJax.typeset();
-        return;
-    }
-    
-    // Настройки MathJax (без braket)
+    // Настройки MathJax
     window.MathJax = {
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']],
-            macros: {
-                ket: ["|#1\\rangle", 1],
-                bra: ["\\langle#1|", 1]
-            }
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
         },
         options: {
             skipHtmlTags: [],
             ignoreHtmlClass: '',
-            processHtmlClass: '.*'
+            processHtmlClass: '.*'  // Обрабатывать ВСЕ элементы
         },
         startup: {
+            pageReady: function() {
+                console.log('MathJax: pageReady triggered');
+                // Находим все абзацы с символами $
+                var paragraphs = document.querySelectorAll('p, div, span, li');
+                console.log('Checking ' + paragraphs.length + ' elements');
+                paragraphs.forEach(function(el, i) {
+                    if (el.innerHTML && el.innerHTML.includes('$')) {
+                        console.log('Found formula in element ' + i);
+                    }
+                });
+                return MathJax.startup.defaultPageReady();
+            },
             ready: function() {
-                console.log('MathJax loaded');
+                console.log('MathJax: ready');
                 MathJax.startup.defaultReady();
-                console.log('Running MathJax.typeset()');
-                MathJax.typeset();
+                // Несколько попыток обработать формулы
+                setTimeout(function() {
+                    console.log('MathJax: manual typeset attempt 1');
+                    MathJax.typeset();
+                }, 500);
+                setTimeout(function() {
+                    console.log('MathJax: manual typeset attempt 2');
+                    MathJax.typeset();
+                }, 1500);
             }
         }
     };
     
     // Загружаем MathJax
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
-    script.async = true;
-    document.head.appendChild(script);
-    console.log('Loading MathJax...');
+    if (!document.querySelector('script[src*="mathjax"]')) {
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+        script.async = true;
+        document.head.appendChild(script);
+        console.log('MathJax: loading script');
+    }
 })();
