@@ -50,14 +50,13 @@ sphinx:
     html_js_files:
       - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
     mathjax3_config:
-  tex:
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-    displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    packages: {'[+]': ['braket']}
-    macros:
-      ket: ["|#1\\rangle", 1]
-      bra: ["\\langle#1|", 1]
-      braket: ["\\langle#1|#2\\rangle", 2]
+      tex:
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        macros:
+          Ket: ['|#1\rangle', 1]
+          Bra: ['\langle#1|', 1]
+          BraKet: ['\langle#1|#2\rangle', 2]
 
 parse:
   myst_enable_extensions:
