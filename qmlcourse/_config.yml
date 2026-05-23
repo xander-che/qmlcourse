@@ -62,6 +62,3 @@ repository:
   url: https://github.com/quantum-ods/qmlcourse
   path_to_book: qmlcourse
   branch: master
-
-latex:
-  use_jupyterbook_latex: true
