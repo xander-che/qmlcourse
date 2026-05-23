@@ -29,16 +29,19 @@ jobs:
         run: |
           pip install poetry==1.8.3
       
-      - name: Install dependencies
+      - name: Install dependencies (except jax/jaxlib)
         run: |
           poetry env use python3.9
           poetry lock --no-update
-          poetry install --no-interaction --no-root
+          poetry install --no-interaction --no-root --without=notebook
       
-      - name: Install jaxlib separately
+      - name: Install jax and jaxlib separately
         run: |
-          poetry run pip install jaxlib==0.3.22 --find-links https://whls.blob.core.windows.net/unstable/linux_x86_64/ --no-deps
-          poetry run pip install jax==0.3.23 --no-deps
+          poetry run pip install jaxlib==0.3.22 jax==0.3.23 -f https://storage.googleapis.com/jax-releases/jax_releases.html
+      
+      - name: Install remaining dependencies
+        run: |
+          poetry install --no-interaction
       
       - name: Build the book
         run: |
