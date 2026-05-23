@@ -46,18 +46,36 @@ jobs:
           find ./qmlcourse -name "*.ipynb" -type f -exec sed -i 's/\\\\ket{\\([^}]*\\)}/|\\\\1\\\\rangle/g' {} \;
           echo "✅ Замена \\ket выполнена"
       
-      - name: Remove problematic LaTeX commands
+      - name: Clean up LaTeX commands
         run: |
           # Удаляем size команды
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\large//g' {} \;
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\small//g' {} \;
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\normalsize//g' {} \;
+          
           # Заменяем \mbox на \text
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\mbox/\\text/g' {} \;
           find ./qmlcourse -name "*.ipynb" -type f -exec sed -i 's/\\\\mbox/\\\\text/g' {} \;
-          # Исправляем \1 (временно)
+          
+          # Заменяем \operatorname{Tr} на \text{Tr}
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\operatorname{Tr}/\\text{Tr}/g' {} \;
+          
+          # Исправляем \1 на \Psi
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\1/\\Psi/g' {} \;
-          echo "✅ Removed problematic LaTeX commands"
+          
+          # Убираем лишние скобки
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/} }/}/g' {} \;
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/} }/}/g' {} \;
+          
+          # Исправляем \left{ и \right}
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\left{/{/g' {} \;
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\right}/}/g' {} \;
+          
+          # Убираем одиночные \left и \right
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\left//g' {} \;
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\right//g' {} \;
+          
+          echo "✅ LaTeX cleanup completed"
       
       - name: Migrate toc and build the book
         run: |
