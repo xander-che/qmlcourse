@@ -49,20 +49,18 @@ sphinx:
     - sphinx_sitemap
     - sphinx_jupyterbook_latex
   config:
-    html_js_files:
-      - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
     mathjax3_config:
       tex:
         inlineMath: [['$', '$'], ['\\(', '\\)']]
         displayMath: [['$$', '$$'], ['\\[', '\\]']]
         macros:
-          Ket: ['|#1\rangle', 1]
-          Bra: ['\langle#1|', 1]
-          BraKet: ['\langle#1|#2\rangle', 2]
+          ket: ["|#1\\rangle", 1]
+          bra: ["\\langle#1|", 1]
       options:
         skipHtmlTags: []
         processHtmlClass: '.*'
-        ignoreHtmlClass: ''
+    html_js_files:
+      - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 
 parse:
   myst_enable_extensions:
