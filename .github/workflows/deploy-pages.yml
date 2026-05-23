@@ -39,9 +39,10 @@ jobs:
         run: |
           pip install tensorflow-quantum==0.6.1
       
-      - name: Build the book
+      - name: Migrate toc and build the book
         run: |
-          jupyter-book build qmlcourse/
+          jupyter-book toc migrate ./qmlcourse/_toc.yml -o ./qmlcourse/_toc.yml
+          jupyter-book build ./qmlcourse/
       
       - uses: actions/upload-pages-artifact@v3
         with:
