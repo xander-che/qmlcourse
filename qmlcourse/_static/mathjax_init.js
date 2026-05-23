@@ -1,9 +1,20 @@
 (function() {
-    // Настройки MathJax
+    // Проверяем, не загружен ли уже MathJax
+    if (window.MathJax && window.MathJax.typeset) {
+        console.log('MathJax already present, running typeset');
+        MathJax.typeset();
+        return;
+    }
+    
+    // Настройки MathJax (без braket)
     window.MathJax = {
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            macros: {
+                ket: ["|#1\\rangle", 1],
+                bra: ["\\langle#1|", 1]
+            }
         },
         options: {
             skipHtmlTags: [],
@@ -11,29 +22,19 @@
             processHtmlClass: '.*'
         },
         startup: {
-            pageReady: function() {
-                console.log('MathJax processing started');
-                return MathJax.startup.defaultPageReady();
-            },
             ready: function() {
-                console.log('MathJax script loaded');
+                console.log('MathJax loaded');
                 MathJax.startup.defaultReady();
-                // После загрузки обрабатываем все формулы
-                setTimeout(function() {
-                    console.log('Running MathJax.typeset()');
-                    MathJax.typeset();
-                }, 500);
+                console.log('Running MathJax.typeset()');
+                MathJax.typeset();
             }
         }
     };
     
-    // Загружаем MathJax, если он ещё не загружен
-    if (!document.querySelector('script[src*="mathjax"]')) {
-        var script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
-        script.async = true;
-        document.head.appendChild(script);
-    } else {
-        console.log('MathJax already loading');
-    }
+    // Загружаем MathJax
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+    script.async = true;
+    document.head.appendChild(script);
+    console.log('Loading MathJax...');
 })();
