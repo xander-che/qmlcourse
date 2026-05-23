@@ -79,6 +79,11 @@ jobs:
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\hat{\\vec{\\sigma}}/\\hat{\\sigma}/g' {} \;
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/| \\bra{\\Psi}|\\Psi\\rangle} |\\^2/|\\langle \\Psi | \\Psi \\rangle|^2/g' {} \;
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/R\\^\\vec{n}(\\alpha)/R^{\\vec{n}}(\\alpha)/g' {} \;
+
+          # Исправляем \mathrm{H}A на \mathrm{H}_A
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\mathrm{H}A/\\mathrm{H}_A/g' {} \;
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\mathrm{H}B/\\mathrm{H}_B/g' {} \;
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\mathrm{H}{AB}/\\mathrm{H}_{AB}/g' {} \;
           
           echo "✅ LaTeX cleanup completed"
       
