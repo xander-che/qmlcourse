@@ -4,7 +4,12 @@
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']],
             displayMath: [['$$', '$$'], ['\\[', '\\]']],
-            packages: ['base', 'ams', 'newcommand']  // Без braket!
+            packages: ['base', 'ams', 'newcommand'],
+            macros: {
+                bra: ["\\langle #1|", 1],
+                ket: ["|#1\\rangle", 1],
+                braket: ["\\langle #1|#2\\rangle", 2]
+            }
         },
         options: {
             ignoreHtmlClass: '.*|',  // Не игнорируем ничего
@@ -12,7 +17,7 @@
         },
         startup: {
             ready: function() {
-                console.log('MathJax 3 ready');
+                console.log('MathJax 3 ready with macros');
                 MathJax.startup.defaultReady();
                 // Многократно пытаемся обработать
                 setTimeout(() => MathJax.typeset(), 100);
