@@ -25,27 +25,21 @@ jobs:
         with:
           python-version: '3.9'
       
-      - name: Install poetry
+      - name: Install build dependencies
         run: |
-          pip install poetry==1.8.3
+          pip install --upgrade pip
+          pip install jupyter-book
+          pip install numpy scipy matplotlib pandas sympy jax jaxlib -f https://storage.googleapis.com/jax-releases/jax_releases.html
       
-      - name: Install dependencies
+      - name: Install course dependencies from pyproject.toml (skip jax/jaxlib)
         run: |
-          poetry env use python3.9
-          poetry lock --no-update
-          poetry install --no-interaction --no-root || true
-      
-      - name: Force install jax and jaxlib
-        run: |
-          poetry run pip install jax jaxlib -f https://storage.googleapis.com/jax-releases/jax_releases.html
-      
-      - name: Retry poetry install
-        run: |
-          poetry install --no-interaction --no-root
+          pip install .
+        env:
+          PIP_IGNORE_INSTALLED: 0
       
       - name: Build the book
         run: |
-          poetry run jupyter-book build qmlcourse/
+          jupyter-book build qmlcourse/
       
       - uses: actions/upload-pages-artifact@v3
         with:
