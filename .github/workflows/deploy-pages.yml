@@ -29,11 +29,11 @@ jobs:
         run: pip install jupyter-book
       
       - name: Build the book
-        run: jupyter-book build qmlcourse/
+        run: jupyter-book build qmlcourse/book/
       
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: qmlcourse/_build/html/
+          path: qmlcourse/book/_build/html/
 
   deploy:
     environment:
