@@ -35,6 +35,11 @@ jobs:
           poetry lock --no-update
           poetry install --no-interaction --no-root
       
+      - name: Install jaxlib separately
+        run: |
+          poetry run pip install jaxlib==0.3.22 --find-links https://whls.blob.core.windows.net/unstable/linux_x86_64/ --no-deps
+          poetry run pip install jax==0.3.23 --no-deps
+      
       - name: Build the book
         run: |
           poetry run jupyter-book build qmlcourse/
