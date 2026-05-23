@@ -31,6 +31,7 @@ jobs:
       
       - name: Install dependencies
         run: |
+          poetry env use python3.9
           poetry install --no-interaction --no-root
       
       - name: Build the book
