@@ -40,6 +40,14 @@ jobs:
         run: |
           pip install tensorflow-quantum==0.6.1
       
+      - name: Replace \ket with |\rangle in all files
+        run: |
+          # Замена в .md файлах
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\ket{\([^}]*\)}/|\\1\\rangle/g' {} \;
+          # Замена в .ipynb файлах (экранирование для JSON)
+          find ./qmlcourse -name "*.ipynb" -type f -exec sed -i 's/\\\\ket{\\([^}]*\\)}/|\\\\1\\\\rangle/g' {} \;
+          echo "✅ Замена выполнена"
+      
       - name: Migrate toc and build the book
         run: |
           jupyter-book toc migrate ./qmlcourse/_toc.yml -o ./qmlcourse/_toc.yml
