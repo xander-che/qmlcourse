@@ -20,6 +20,8 @@ html:
   binderhub_url: ""
   thebe: false
   baseurl: https://quantum-ods.github.io/qmlcourse/book/
+  extra_js:
+    - _static/mathjax_init.js
 
 notebook_interface: "notebook"
 
