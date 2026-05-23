@@ -48,10 +48,16 @@ jobs:
       
       - name: Remove problematic LaTeX commands
         run: |
+          # Удаляем size команды
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\large//g' {} \;
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\small//g' {} \;
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\normalsize//g' {} \;
-          echo "✅ Removed LaTeX size commands"
+          # Заменяем \mbox на \text
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\mbox/\\text/g' {} \;
+          find ./qmlcourse -name "*.ipynb" -type f -exec sed -i 's/\\\\mbox/\\\\text/g' {} \;
+          # Исправляем \1 (временно)
+          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\1/\\Psi/g' {} \;
+          echo "✅ Removed problematic LaTeX commands"
       
       - name: Migrate toc and build the book
         run: |
