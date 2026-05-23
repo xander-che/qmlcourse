@@ -53,6 +53,10 @@ sphinx:
       tex:
         inlineMath: [['$', '$'], ['\\(', '\\)']]
         displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        packages: {'[+]': ['braket']}
+      options:
+        processHtmlClass: '.*'
+        processEscapes: true
 
 parse:
   myst_enable_extensions:
