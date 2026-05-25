@@ -189,17 +189,9 @@ $$(\ket{\Psi} \bra{\Psi})^2 = \ket{\Psi} \bra{\Psi} \ket{\Psi} \bra{\Psi} = \ket
 
 $$
 M(v,\theta) = \begin{bmatrix}
-   \cos \theta + (1 - \cos \theta) x^2
- & (1 - \cos \theta) x y - (\sin \theta) z
- & (1 - \cos \theta) x z + (\sin \theta) y  
-\\
-   (1 - \cos \theta) y x + (\sin \theta) z
- & \cos \theta + (1 - \cos \theta) y^2
- & (1 - \cos \theta) y z - (\sin \theta) x
-\\
-   (1 - \cos \theta) z x - (\sin \theta) y
- & (1 - \cos \theta) z y + (\sin \theta) x
- & \cos \theta + (1 - \cos \theta) z^2
+   \cos \theta + (1 - \cos \theta) x^2 & (1 - \cos \theta) x y - (\sin \theta) z & (1 - \cos \theta) x z + (\sin \theta) y \\ %
+   (1 - \cos \theta) y x + (\sin \theta) z & \cos \theta + (1 - \cos \theta) y^2 & (1 - \cos \theta) y z - (\sin \theta) x \\ %
+   (1 - \cos \theta) z x - (\sin \theta) y & (1 - \cos \theta) z y + (\sin \theta) x & \cos \theta + (1 - \cos \theta) z^2
 \end{bmatrix}
 $$
 
