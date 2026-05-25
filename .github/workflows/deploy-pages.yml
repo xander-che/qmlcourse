@@ -64,8 +64,8 @@ jobs:
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\1/\\Psi/g' {} \;
           
           # Убираем лишние скобки
-          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/} }/}/g' {} \;
-          find ./qmlcourse -name "*.md" -type f -exec sed -i 's/} }/}/g' {} \;
+          # find ./qmlcourse -name "*.md" -type f -exec sed -i 's/} }/}/g' {} \;
+          # find ./qmlcourse -name "*.md" -type f -exec sed -i 's/} }/}/g' {} \;
 
           # Исправляем \left\{ и \right\} (только для фигурных скобок)
           find ./qmlcourse -name "*.md" -type f -exec sed -i 's/\\left\\{/\\{/g' {} \;
