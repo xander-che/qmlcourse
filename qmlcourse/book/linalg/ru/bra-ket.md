@@ -187,7 +187,7 @@ $$(\ket{\Psi} \bra{\Psi})^2 = \ket{\Psi} \bra{\Psi} \ket{\Psi} \bra{\Psi} = \ket
 
 Оператором поворота по оси вращения $v=(x,y,z)$ на угол $\theta$ является
 
-```{math}
+$$
 M(v,\theta) = \begin{bmatrix}
    \cos \theta + (1 - \cos \theta) x^2
  & (1 - \cos \theta) x y - (\sin \theta) z
@@ -201,7 +201,7 @@ M(v,\theta) = \begin{bmatrix}
  & (1 - \cos \theta) z y + (\sin \theta) x
  & \cos \theta + (1 - \cos \theta) z^2
 \end{bmatrix}
-```
+$$
 
 Например, матрица поворота относительно оси $x$ на $90^\degree$: $x=1$, $y=0$, $z=0$, $\theta = \frac{\pi}{2}$, будет иметь вид:
 
