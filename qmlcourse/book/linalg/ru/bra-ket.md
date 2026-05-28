@@ -222,7 +222,10 @@ $$
 
 Тогда производная многочлена 
 $$
-p = a_0 + a_1 t  + \cdots + a_n t^{n} = \begin{bmatrix} a_0 & a_1 & \cdots & a_n \end{bmatrix} \cdot \begin{bmatrix} 1 \\ t \\ \vdots \\ t^{n} \end{bmatrix}
+p = a_0 + a_1 t  + \cdots + a_n t^{n} = \begin{bmatrix} a_0 & a_1 & \cdots & a_n \end{bmatrix} \cdot \begin{bmatrix} 1 \\
+t \\
+\vdots \\
+t^{n} \end{bmatrix}
 $$
 
 $$
