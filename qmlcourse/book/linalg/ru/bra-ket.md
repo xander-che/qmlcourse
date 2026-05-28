@@ -220,10 +220,7 @@ D=\begin{bmatrix}
 \end{bmatrix}
 $$
 
-Тогда производная многочлена 
-```{math}
-p = a_0 + a_1 t  + \cdots + a_n t^{n} = \begin{bmatrix} a_0 & a_1 & \cdots & a_n \end{bmatrix} \cdot \begin{bmatrix} 1 \\ t \\ \vdots \\ t^{n} \end{bmatrix}
-```
+Тогда производная многочлена $p = a_0 + a_1 t  + \cdots + a_n t^{n} = \begin{bmatrix} a_0 & a_1 & \cdots & a_n \end{bmatrix} \cdot \begin{bmatrix} 1 \\ t \\ \vdots \\ t^{n} \end{bmatrix}$
 
 $$
 \mathcal{D}(p)  = \begin{bmatrix} a_0 & a_1 & \cdots & a_n \end{bmatrix} D \begin{bmatrix} 1 \\ t \\ \vdots \\ t^{n-1} \end{bmatrix} = a_1 + 2 a_2 t+\cdots+n a_n t^{n-1}.
